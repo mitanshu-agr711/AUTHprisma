@@ -12,3 +12,12 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id       Int     @id @default(autoincrement())
+  name     String  @db.VarChar(191)
+  // agr define nhi karenge to varchar to text le le ga jo by default kafi bada hota hai
+  email    String  @unique @db.VarChar(191)
+  password String
+  profile  String?
+}
