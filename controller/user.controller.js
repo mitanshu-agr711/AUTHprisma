@@ -7,7 +7,7 @@ class AuthController
     static async register(req,res)//static use where we access the class by its name
     {
        try {
-         const body=req.body();
+         const body=req.body
          const validator=vine .compile(registerSchema)
          const playload=await validator.validate(body)
          console.log(playload)
@@ -23,3 +23,4 @@ class AuthController
        }
     } 
 }
+export default AuthController

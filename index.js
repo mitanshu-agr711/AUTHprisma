@@ -1,13 +1,28 @@
 import dotenv from "dotenv";
-dotenv.config();
-import express from "express"
-const app=express();
-app.use(express.json());
+import express from "express";
+import Apiroute from "./routes/user.routes.js";
 
-app.get('/',(req,res)=>{
-    return res.send("hey this is me")
-})
-let PORT=process.env.PORT||8000
-app.listen(PORT,()=>
-  console.log(`port is running on ${PORT}`)
-)
+// Load environment variables from .env file
+dotenv.config();
+
+const app = express();
+
+// Middleware to parse JSON and URL-encoded data
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// Route for your API
+app.use("/api", Apiroute);
+
+// Simple route for testing
+app.get('/', (req, res) => {
+    res.send("Hey, this is me");
+});
+
+// Environment variable for port
+const PORT = process.env.PORT || 8000;
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
