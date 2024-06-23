@@ -4,9 +4,9 @@ import prisma from "../db/prisma.db.js";
 import vine from "@vinejs/vine";
 import { loginSchema, registerSchema } from "../validation/auth.validation.js";
 import bcrypt from "bcrypt"
-import { Apierror } from "../validation/Apierror.js"; // Adjust the import path if necessary
-import { messages } from "@vinejs/vine/defaults";
-import { platform } from "os";
+// import { Apierror } from "../validation/Apierror.js"; // Adjust the import path if necessary
+// import { messages } from "@vinejs/vine/defaults";
+// import { platform } from "os";
 
 class AuthController {
   static async register(req, res) {
